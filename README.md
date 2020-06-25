@@ -5,9 +5,10 @@
 ### Asymptotic Notation
 Idea: Suppress constant factors and lower-order terms
 
-| Big O - O(…)   |      Big Omega - Ω(…)      |  Big Theta - Θ(…) |
+|Big O - O(…)|Big Omega - Ω(…)|Big Theta - Θ(…)|
 |----------|-------------|------|
-| - Upper bound<br>- T(n) is O(f(n)) if f(n) grows at least as fast as T(n) as n gets large |  - Lower bound<br>- T(n) is Ω(f(n)) if f(n) grows at most as fast as T(n) as n gets large | - Lower and Upper bound<br>- T(n) = O(f(n)) AND T(n) = Ω(f(n)) |
+|<ul><li>Upper bound</li><li>T(n) is O(f(n)) if f(n) grows at least as fast as T(n) as n gets large</li></ul> | <ul><li>Lower bound</li>T(n) is Ω(f(n)) if f(n) grows at most as fast as T(n) as n gets large</li></ul> | <ul><li>Lower and Upper bound</li><li>T(n) = O(f(n)) AND T(n) = Ω(f(n))</li></ul> |
+|![](images/big_o.png)|![](images/big_omega.png)|![](images/big_theta.png)|
 
 ### Master Theorem
 - **Example** : Binary Search
@@ -20,7 +21,7 @@ O(ndlog n) = O(log n)
 
 ## II. Sorting
 ### Insertion Sort
-#### Algorithm [View](sorting/insertion.go)
+#### Algorithm [View](sorting/mergesort.go)
 - From i to 0..n, insert a[i] to its correct position to the left (0..i)
 
 #### Complexity
