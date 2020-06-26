@@ -22,33 +22,33 @@ Idea: Suppress constant factors and lower-order terms
 
 ## II. Sorting
 ### Insertion Sort
-- #### Algorithm [View](sorting/insertion.go)
+- ### Algorithm [View](sorting/insertion.go)
     - From i to 0..n, insert a[i] to its correct position to the left (0..i)
 
-- #### Complexity
+- ### Complexity
     | Time | Space |
     |---|---|
     | `O(n²)` | `O(1)` |
 
 ### Merge Sort
-- #### Algorithm [View](sorting/mergesort.go)
+- ### Algorithm [View](sorting/mergesort.go)
     - Splits a collection into two halves
     - Sort the two halves (recursive call)
     - Merge them together to form one sorted collection
 
-- #### Complexity
+- ### Complexity
     | Time | Space |
     |---|---|
     | `Θ(n log n)` | `O(n)` |
 
 ### Quick Sort
-- #### Algorithm [View](sorting/quicksort.go)
+- ### Algorithm [View](sorting/quicksort.go)
     - Choose a pivot element `p`
     - Partition array `A` around `p`
     - recursively sort first part of `A`
     - recursively sort second part of `A`
 
-- #### Complexity
+- ### Complexity
     | Time | Space |
     |---|---|
     | <ul><li>Best and average: `O(n log n)`</li><li>Worst: `O(n²)`</li> | `O(n log n)` |
@@ -67,16 +67,16 @@ Idea: Suppress constant factors and lower-order terms
 
 ![](images/heap.png)
 
-- #### Algorithm [View](datastructures/heap.go)
-    - ##### Insert
+- ### Algorithm [View](datastructures/heap.go)
+    - #### Insert
         - Stick the new object at the end of the heap and increment the heap size
         - Repeatedly swap the new object with its parent until the heap property is restored
-    - ##### ExtractMin
+    - #### ExtractMin
         - **Operation:** Given a heap `H`, remove and return from `H` an object with the smallest key
         - Overwrite the root with the last object `x` in the heap, and decrement the heap size
         - Repeatedly swap `x` with its smallest child until the heap property is restored
 
-- #### Complexity
+- ### Complexity
     |Operation|Running Time|
     |---|---|
     |Insert|`O(log n)`|
