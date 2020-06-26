@@ -78,9 +78,70 @@ Idea: Suppress constant factors and lower-order terms
 
 - #### Complexity
     |Operation|Running Time|
-    |--- |---|
+    |---|---|
     |Insert|`O(log n)`|
     |ExtractMin|`O(log n)`|
     |FindMin|`O(1)`|
     |Heapify|`O(n)`|
     |Delete|`O(log n)`|
+    
+### Binary Search Tree
+
+- Data structure optimized for -wait for it- search. Compared to heap that optimizes fast minimum computations.
+- Type of binary tree which maintains the property that the value in each node must be greater than or equal to any value stored in the left sub-tree, and less than or equal to any value stored in the right sub-tree
+
+- ### Algorithm [View](datastructures/bst.go)
+    - #### Insert
+        - Start at the root node
+        - Repeatedly traverses left and right child pointers, until a null pointer is encoutered
+        - Replace the null pointer with one to the new object. Set the new node's parent pointer to its parent, and child pointers to null
+    - #### Delete
+        - Use Search to locate an object `x` with key `k`. (If no such object exists, halt)
+        - If `x` has no children, delete `x` by setting the appropriate child pointer of `x`'s parent to null. (If `x` was the root, the new tree is empty)
+        - If `x` has one child, splice `x` out by rewiring the appropriate child pointer of `x`'s child to `x`'s parent. (If `x` was the root, its child becomes the new root)
+        - Otherwise, swap `x` with the object in its left subtree that has the biggest key, and delete `x` from its new position (where it has at most one child).
+    - #### Search
+        - Start at the root node
+        - Repeatedly traverses the left and right child pointers. Left if `k` is less than current node's key, right otherwise
+        - Return a pointer to an object with key `k` or none
+    - #### Min (Max)
+        - Start at the root node
+        - Traverse left (or right) child pointers until reaching a null pointer
+        - Return the pointer of the last visited object
+    - #### Predecessor
+        - If `x`'s left subtree is non-empty, return the result of Max applied to this subtree.
+        - Otherwise, traverse parent pointers upward toward the root. If the traversal visits consecutive nodes `y` and `z` with `y` a right child of `z`, return a pointer to `z`.
+        - Otherwise, return none.
+    
+- ### Complexity
+    |Operation|Running Time|
+    |---|---|
+    |Insert|`O(log n)`|
+    |Delete|`O(log n)`|    
+    |Min, Max|`O(log n)`| 
+    |Predecessor|`O(log n)`|
+
+### Black-Red Tree
+
+- ### Algorithm
+
+- ### Complexity
+
+### B-Tree
+
+- ### Algorithm
+
+- ### Complexity
+
+### Hash Table
+
+- ### Algorithm
+
+- ### Complexity
+
+### Bloom Filter
+
+- ### Algorithm
+
+- ### Complexity
+
