@@ -22,13 +22,13 @@ Idea: Suppress constant factors and lower-order terms
 
 ## II. Sorting
 ### Insertion Sort
-#### Algorithm [View](sorting/insertion.go)
-- From i to 0..n, insert a[i] to its correct position to the left (0..i)
+- #### Algorithm [View](sorting/insertion.go)
+    - From i to 0..n, insert a[i] to its correct position to the left (0..i)
 
-#### Complexity
-| Time | Space |
-|---|---|
-| `O(n²)` | `O(1)` |
+- #### Complexity
+    | Time | Space |
+    |---|---|
+    | `O(n²)` | `O(1)` |
 
 ### Merge Sort
 - #### Algorithm [View](sorting/mergesort.go)
@@ -42,11 +42,11 @@ Idea: Suppress constant factors and lower-order terms
     | `Θ(n log n)` | `O(n)` |
 
 ### Quick Sort
-#### Algorithm [View](sorting/quicksort.go)
-- Choose a pivot element `p`
-- Partition array `A` around `p`
-- recursively sort first part of `A`
-- recursively sort second part of `A`
+- #### Algorithm [View](sorting/quicksort.go)
+    - Choose a pivot element `p`
+    - Partition array `A` around `p`
+    - recursively sort first part of `A`
+    - recursively sort second part of `A`
 
 - #### Complexity
     | Time | Space |
@@ -54,6 +54,33 @@ Idea: Suppress constant factors and lower-order terms
     | <ul><li>Best and average: `O(n log n)`</li><li>Worst: `O(n²)`</li> | `O(n log n)` |
 
 ## III. Data Structures
+- They exist for organizing and manipulating data
+- Different data structures support different set of operations
+- The more operations a data structure supports, the slower the operations and greater the space overhead
+- __Rule:__ Choose the simplest data structure that supports all the operations required by the problem
+
 ### Heap
 
-### Algorithm
+- Data structure that keeps track of an evolving set of objects with keys and can quickly identify the object with the mininum of maximum key.
+- In a max heap, the keys of parent nodes are always greater than or equal to those of the children and the highest key is in the root node.
+- In a min heap, the keys of parent nodes are less than or equal to those of the children and the lowest key is in the root node
+
+![](images/heap.png)
+
+- #### Algorithm [View](datastructures/heap.go)
+    - ##### Insert
+        - Stick the new object at the end of the heap and increment the heap size
+        - Repeatedly swap the new object with its parent until the heap property is restored
+    - ##### ExtractMin
+        - **Operation:** Given a heap `H`, remove and return from `H` an object with the smallest key
+        - Overwrite the root with the last object `x` in the heap, and decrement the heap size
+        - Repeatedly swap `x` with its smallest child until the heap property is restored
+
+- #### Complexity
+    |Operation|Running Time|
+    |--- |---|
+    |Insert|`O(log n)`|
+    |ExtractMin|`O(log n)`|
+    |FindMin|`O(1)`|
+    |Heapify|`O(n)`|
+    |Delete|`O(log n)`|
