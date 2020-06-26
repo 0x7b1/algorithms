@@ -93,7 +93,7 @@ Idea: Suppress constant factors and lower-order terms
 - ### Algorithm [View](datastructures/bst.go)
     - #### Insert
         - Start at the root node
-        - Repeatedly traverses left and right child pointers, until a null pointer is encoutered
+        - Repeatedly traverses left and right child pointers, until a null pointer is encountered
         - Replace the null pointer with one to the new object. Set the new node's parent pointer to its parent, and child pointers to null
     - #### Delete
         - Use Search to locate an object `x` with key `k`. (If no such object exists, halt)
