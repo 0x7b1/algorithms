@@ -120,28 +120,33 @@ Idea: Suppress constant factors and lower-order terms
     |Delete|`O(log n)`|    
     |Min, Max|`O(log n)`| 
     |Predecessor|`O(log n)`|
-
-### Black-Red Tree
-
-- ### Algorithm
-
-- ### Complexity
-
-### B-Tree
-
-- ### Algorithm
-
-- ### Complexity
-
+    
 ### Hash Table
 
-- ### Algorithm
+- Facilitates fast searches (lookups).
+- Use it when a problem needs fast lookups with a dynamically changing set of objects.
+- Implemented with array of linked list
+- Hash code function give the array index
+- Collision resolutions: Chaining, Open Addressing
+
+- ### Algorithm [View](datastructures/hashtable.go)
+    - The Table type is the basis of the package. It stores key/value string pairs using a slice internally, where the number of hashtable buckets within the slice is determined by an integer m:
+    - A smaller m means less buckets will be created, but each key stored in the Table has a higher likelihood of having to share a bucket with other keys, thus slowing down lookups
+    - A larger m means more buckets will be created, so each key stored in the Table has a lower likelihood of having to share a bucket with other keys, thus speeding up lookups
+    - The kv type is a small helper to concisely store a key/value string pair.
 
 - ### Complexity
+    |Operation|Running Time|
+    |---|---|
+    |Insert|`O(1)`|
+    |Lookup|`O(1)`|    
+    |Delete|`O(1)`| 
 
-### Bloom Filter
-
-- ### Algorithm
-
-- ### Complexity
-
+### Todo
+- [ ] Black-Red Tree
+- [ ] B-Tree
+- [ ] AVL Tree
+- [ ] Bloom Filter
+- [ ] Queue
+- [ ] Stack
+- [ ] Linked List

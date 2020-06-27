@@ -100,10 +100,7 @@ func (b *BST) max(n *Node) *Node {
 }
 
 func (b *BST) Exist(k int) bool {
-	if b.search(b.root, k) == nil {
-		return false
-	}
-	return true
+	return b.search(b.root, k) != nil
 }
 
 func (b *BST) search(n *Node, k int) *Node {
