@@ -6,6 +6,8 @@ const (
 	Unvisited  = "UNVISITED"
 	InProgress = "IN_PROGRESS"
 	Done       = "DONE"
+
+	Visited = "VISITED"
 )
 
 type Vertex struct {
@@ -113,7 +115,7 @@ func DFS_helper(w *Vertex, currentTime int, verbose bool) int {
 
 	for _, v := range w.outNeighbors {
 		if v.status == Unvisited {
-			currentTime= DFS_helper(v, currentTime, verbose)
+			currentTime = DFS_helper(v, currentTime, verbose)
 			currentTime++
 		}
 	}
@@ -127,7 +129,7 @@ func DFS_helper(w *Vertex, currentTime int, verbose bool) int {
 	return currentTime
 }
 
-func DFS(w *Vertex, g *Graph, verbose bool)  {
+func DFS(w *Vertex, g *Graph, verbose bool) {
 	for _, v := range g.vertices {
 		v.status = Unvisited
 		v.inTime = 0
@@ -179,6 +181,30 @@ func topoSort(w *Vertex, g *Graph, verbose bool) []*Vertex {
 	return ordering
 }
 
+func BFS(w *Vertex, g *Graph) [][]*Vertex {
+	for _, v := range g.vertices {
+		v.status = Unvisited
+	}
+
+	n := len(g.vertices)
+	distances := make([][]*Vertex, n)
+	distances[0] = []*Vertex{w}
+	w.status = Visited
+
+	for i := 0; i < n; i++ {
+		for _, u := range distances[i] {
+			for _, v := range u.outNeighbors {
+				if v.status == Unvisited {
+					v.status = Visited
+					distances[i+1] = append(distances[i+1], v)
+				}
+			}
+		}
+	}
+
+	return distances
+}
+
 func main() {
 	G := new(Graph)
 	v_E := &Vertex{value: "E", status: Unvisited}
@@ -211,5 +237,14 @@ func main() {
 	sorted := topoSort(v_H, G, true)
 	for _, v := range sorted {
 		fmt.Print(" -> ", v)
+	}
+
+	fmt.Println("\n---------------\n")
+	levels := BFS(v_H, G)
+	for i, l := range levels {
+		fmt.Println("Level", i, ":")
+		for _, v := range l {
+			fmt.Println("\t", v)
+		}
 	}
 }

@@ -165,11 +165,16 @@ Idea: Suppress constant factors and lower-order terms
     
 ### Breadth-first search (BFS)
 
-- Explore the vertices of a graph in "layers"
+- It's a good way to find connected components
+- Useful for testing if a graph is bipartite or not
 
-- ### Algorithm
+- ### Algorithm [View](graphs/bfs.go)
+    - Explore the vertices of a graph in "layers". Explores the neighbor nodes first, before moving to the next level neighbors
 
 - ### Complexity
+    |Time|
+    |---|
+    |`O(V + E)`|
 
 ### Depth-first search (DFS)
 
