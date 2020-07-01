@@ -150,3 +150,55 @@ Idea: Suppress constant factors and lower-order terms
 - [ ] Queue
 - [ ] Stack
 - [ ] Linked List
+
+## III. Graphs
+
+- G = (V, E); m = |V|; n = |E|
+- Adjacency matrix is an efficient way to encode a dense graph but is wasteful for a sparse graph
+- Adjacency matrix takes O(n²) space, whereaas adjacency list takes O(m + n) 
+- Adjacency lists are perfect for graph exploration
+- Why do we want to search a graph:
+    - To check connectivity
+    - Shortest path
+    - Planning
+    - Connected components
+    
+### Breadth-first search (BFS)
+
+- Explore the vertices of a graph in "layers"
+
+- ### Algorithm
+
+- ### Complexity
+
+### Depth-first search (DFS)
+
+DFS is a graph technique for searching exhaustively all the neighbors of each vertex that are connected. It goes deeply.
+
+- ### Algorithm [View](graphs/dfs.go)
+    - Traverse deep into the graph by visiting the children before sibling/neighbor nodes
+    - Walk though a path, backtrack until we found a new path
+
+- ### Complexity
+    |Time|
+    |---|
+    |`O(V + E)`|
+
+### Topological Sort
+
+Is a linear ordering of a DAG' nodes such that from every node `u` to node `v`, `u` comes before `v` in the ordering
+
+- ### Algorithm [View](graphs/toposort.go)
+    - Same as DFS but maintain an array updading the visited elements in the first position as in a stack
+
+- ### Complexity
+    |Time|
+    |---|
+    |`O(V + E)`|
+
+### Todo
+- [ ] Dijkstra's Algorithm
+- [ ] Bellman-Ford Algorithm
+- [ ] Floyd-Warshall Algorithm
+- [ ] Prim's Algorithm
+- [ ] Kruskal's Algorithm
