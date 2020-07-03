@@ -153,7 +153,7 @@ Idea: Suppress constant factors and lower-order terms
 
 ## III. Graphs
 
-- G = (V, E); m = |V|; n = |E|
+- `G = (V, E)`; `m = |V|`; `n = |E|`
 - Adjacency matrix is an efficient way to encode a dense graph but is wasteful for a sparse graph
 - Adjacency matrix takes O(n²) space, whereaas adjacency list takes O(m + n) 
 - Adjacency lists are perfect for graph exploration
@@ -162,6 +162,26 @@ Idea: Suppress constant factors and lower-order terms
     - Shortest path
     - Planning
     - Connected components
+    
+### Strongly Connected Components (SCC)
+
+- A directed graph `G = (V, E)` is strongly connected if for all `v`,`w` in `V`: There's a path from `v` to `w` and from `w` to `v`
+- We can decompose a graph into SCC. These tell you about "groups"
+
+- ### Algorithm [View](/graphs/toposort.go)
+    - Do DFS to create a DFS forest
+        - Choose starting vertices in any order
+        - Keep track of finishing times
+    - Reverse all the edges in the graph
+    - Do DFS again to create another DFS forest
+        - This time, order the nodes in the reverse order of the finishing times that they had from the first DFS run
+    - The SCCs are the different trees in **the second DFS forest**
+
+- ### Complexity
+    |Time|
+    |---|
+    |`O(m + n)`|
+
     
 ### Breadth-first search (BFS)
 

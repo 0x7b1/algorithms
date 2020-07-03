@@ -104,83 +104,6 @@ func (g *Graph) String() string {
 	return ret
 }
 
-func DFS_helper(w *Vertex, currentTime int, verbose bool) int {
-	if verbose {
-		fmt.Println("Time", currentTime, "entering", w.value)
-	}
-
-	w.inTime = currentTime
-	currentTime++
-	w.status = InProgress
-
-	for _, v := range w.outNeighbors {
-		if v.status == Unvisited {
-			currentTime = DFS_helper(v, currentTime, verbose)
-			currentTime++
-		}
-	}
-
-	w.outTime = currentTime
-	w.status = Done
-	if verbose {
-		fmt.Println("Time", currentTime, "leaving", w.value)
-	}
-
-	return currentTime
-}
-
-func DFS(w *Vertex, g *Graph, verbose bool) {
-	for _, v := range g.vertices {
-		v.status = Unvisited
-		v.inTime = 0
-		v.outTime = 0
-	}
-
-	DFS_helper(w, 0, verbose)
-}
-
-func topoSort_helper(w *Vertex, currentTime int, ordering *[]*Vertex, verbose bool) int {
-	if verbose {
-		fmt.Println("Time", currentTime, "entering", w.value)
-	}
-
-	w.inTime = currentTime
-	currentTime++
-	w.status = InProgress
-
-	for _, v := range w.outNeighbors {
-		if v.status == Unvisited {
-			currentTime = topoSort_helper(v, currentTime, ordering, verbose)
-			currentTime++
-		}
-	}
-
-	*ordering = append([]*Vertex{w}, *ordering...)
-
-	w.outTime = currentTime
-	w.status = Done
-
-	if verbose {
-		fmt.Println("Time", currentTime, "leaving", w.value)
-	}
-
-	return currentTime
-}
-
-func topoSort(w *Vertex, g *Graph, verbose bool) []*Vertex {
-	var ordering []*Vertex
-
-	for _, v := range g.vertices {
-		v.status = Unvisited
-		v.inTime = 0
-		v.outTime = 0
-	}
-
-	topoSort_helper(w, 0, &ordering, verbose)
-
-	return ordering
-}
-
 func BFS(w *Vertex, g *Graph) [][]*Vertex {
 	for _, v := range g.vertices {
 		v.status = Unvisited
@@ -228,18 +151,6 @@ func main() {
 	G.addDiEdge(v_H, v_G)
 	G.addDiEdge(v_H, v_I)
 
-	fmt.Println(G)
-
-	DFS(v_E, G, true)
-
-	fmt.Println("\n---------------\n")
-
-	sorted := topoSort(v_H, G, true)
-	for _, v := range sorted {
-		fmt.Print(" -> ", v)
-	}
-
-	fmt.Println("\n---------------\n")
 	levels := BFS(v_H, G)
 	for i, l := range levels {
 		fmt.Println("Level", i, ":")
