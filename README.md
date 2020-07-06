@@ -187,6 +187,7 @@ Idea: Suppress constant factors and lower-order terms
 
 - It's a good way to find connected components
 - Useful for testing if a graph is bipartite or not
+- Only works with unweighted graphs
 
 - ### Algorithm [View](graphs/bfs.go)
     - Explore the vertices of a graph in "layers". Explores the neighbor nodes first, before moving to the next level neighbors
@@ -194,7 +195,7 @@ Idea: Suppress constant factors and lower-order terms
 - ### Complexity
     |Time|
     |---|
-    |`O(V + E)`|
+    |`O(m + n)`|
 
 ### Depth-first search (DFS)
 
@@ -207,7 +208,7 @@ DFS is a graph technique for searching exhaustively all the neighbors of each ve
 - ### Complexity
     |Time|
     |---|
-    |`O(V + E)`|
+    |`O(m + n)`|
 
 ### Topological Sort
 
@@ -219,11 +220,43 @@ Is a linear ordering of a DAG' nodes such that from every node `u` to node `v`, 
 - ### Complexity
     |Time|
     |---|
-    |`O(V + E)`|
+    |`O(m + n)`|
+    
+### Dijkstra's Algorithm
+
+- Dijkstra is an algotihm that finds shortest paths in weightet graphs with non-negative edge weights
+- The **cost** of a graph is the sum of the weights along that path
+- The **shortest path** is the one with minimum cost
+- Is very centralized: need to keep track of all the vertices to know which to update
+
+- ### Algorithm [View](/graphs/dijkstra.go)
+    - Init the shortest distance to MAX except for the initial node
+    - Init a priority queue where the comparator will be on the total distance so far
+    - Init a set to store all visited nodes
+    - Add initial vertex to the priority queue
+    - While queue is not empty: Mark vertex as visited, check the total distance to each neighbor, update shortest and previous arrays if smaller. If destination was unvisited, adds it to the queue
+
+- ### Complexity
+    |Time|
+    |---|
+    |`O(m + n log n)`|
+
+### Bellman-Ford Algorithm
+
+- Algorithm that solves the single source shortest paths problem on graphs with edges with potentially negative weights.
+- Can be done in a distributed fashion, every vertex using only information from its neighbors
+
+- ### Algorithm [View](/graphs/bellman-ford.go)
+    - Given a directed graph and edges with weights
+    - Detects a negative cycle if it exists and is reachable from s, or
+    - Computes the shortest path distances
+
+- ### Complexity
+    |Time|
+    |---|
+    |`O(mn)`|
 
 ### Todo
-- [ ] Dijkstra's Algorithm
-- [ ] Bellman-Ford Algorithm
 - [ ] Floyd-Warshall Algorithm
 - [ ] Prim's Algorithm
 - [ ] Kruskal's Algorithm
