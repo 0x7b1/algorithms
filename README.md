@@ -260,3 +260,18 @@ Is a linear ordering of a DAG' nodes such that from every node `u` to node `v`, 
 - [ ] Floyd-Warshall Algorithm
 - [ ] Prim's Algorithm
 - [ ] Kruskal's Algorithm
+
+## IV. Concurrency
+
+### Checkpoint Synchronization [View](/concurrency/checkpoint-sync.go)
+- This is a simple problem of synchronizing multiple tasks
+- Consider a workshop when multiple workers assembling different parts of a mechanism
+- When each of them completes its work, put the details together
+- A worker who finishes its part first must wait for others before starting a new one
+- Putting details together is the checkpoint at which tasks synchronize themselves before going them paths apart
+
+### Todo
+- [ ] Dining Philosophers Problem
+- [ ] Producer Consumer Problem
+- [ ] Sleeping Barber Problem
+- [ ] Cigarette Smokers Problem
