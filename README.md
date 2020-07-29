@@ -230,7 +230,7 @@ Is a linear ordering of a DAG' nodes such that from every node `u` to node `v`, 
 - Is very centralized: need to keep track of all the vertices to know which to update
 
 - ### Algorithm [View](/graphs/dijkstra.go)
-    - Init the shortest distance to MAX except for the initial node
+    - Init the shortest distance to MAX except for the initial nodhttps://aur.archlinux.org/qrcp.gite
     - Init a priority queue where the comparator will be on the total distance so far
     - Init a set to store all visited nodes
     - Add initial vertex to the priority queue
