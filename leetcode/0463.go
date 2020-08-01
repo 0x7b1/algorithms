@@ -13,23 +13,14 @@ func islandPerimeter(grid [][]int) int {
 	for i, row := range grid {
 		for j, e := range row {
 			if e == 1 {
-				if i == 0 {
-					counter++
-				}
-				if i == len(grid)-1 {
-					counter++
-				}
-				if j == 0 {
-					counter++
-				}
-				if j == len(row)-1 {
+				if i == 0 || i == len(grid)-1 || j == 0 || j == len(row)-1 {
 					counter++
 				}
 
 				for _, side := range neighbors {
 					ii, jj := i+side[0], j+side[1]
 
-					if ii < 0 || ii > len(grid) - 1 || jj < 0 || jj > len(row) - 1 {
+					if ii < 0 || ii > len(grid)-1 || jj < 0 || jj > len(row)-1 {
 						continue
 					}
 
