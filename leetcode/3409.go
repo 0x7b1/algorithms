@@ -46,5 +46,5 @@ func detectCapitalUse(word string) bool {
 
 
 func main() {
-	fmt.Println(detectCapitalUse("USA"))
+	fmt.Println(detectCapitalUse("Pikachu"))
 }
