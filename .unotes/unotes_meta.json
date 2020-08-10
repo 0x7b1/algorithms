@@ -1,0 +1,63 @@
+{
+  "name": "",
+  "isOrdered": true,
+  "folders": {
+    "concurrency": {
+      "name": "concurrency",
+      "isOrdered": true,
+      "folders": {},
+      "files": {
+        "README": 0
+      }
+    },
+    "datastructures": {
+      "name": "datastructures",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "graphs": {
+      "name": "graphs",
+      "isOrdered": true,
+      "folders": {},
+      "files": {
+        "README": 0
+      }
+    },
+    "hackerrank": {
+      "name": "hackerrank",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "images": {
+      "name": "images",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "leetcode": {
+      "name": "leetcode",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    },
+    "sorting": {
+      "name": "sorting",
+      "isOrdered": true,
+      "folders": {},
+      "files": {
+        "README": 0
+      }
+    },
+    "std": {
+      "name": "std",
+      "isOrdered": true,
+      "folders": {},
+      "files": {}
+    }
+  },
+  "files": {
+    "README": 0
+  }
+}
