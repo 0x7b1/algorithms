@@ -11,7 +11,7 @@
 - In a max heap, the keys of parent nodes are always greater than or equal to those of the children and the highest key is in the root node.
 - In a min heap, the keys of parent nodes are less than or equal to those of the children and the lowest key is in the root node
 
-<img title="" src="../images/heap.png" alt="" width="417" data-align="center">
+<img title="" src="../images/heap.png" alt="" width="590" data-align="inline">
 
 - ### Algorithm [View](datastructures/heap.go)
   
@@ -39,7 +39,7 @@
 
 - Type of binary tree which maintains the property that the value in each node must be greater than or equal to any value stored in the left sub-tree, and less than or equal to any value stored in the right sub-tree
 
-- ### Algorithm [View](datastructures/bst.go)
+- ### Algorithm [View](./bst.go)
   
   - #### Insert
     - Start at the root node
