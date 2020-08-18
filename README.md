@@ -10,33 +10,18 @@
 
 ## Algorithm Toolbox
 
-- 
-
 - Lists, arrays, stack
-
 - Trees
-
 - Sorting and searching
-
 - Priority queues
-
 - Pattern matching and parsing
-
 - Hashing
-
 - Disjoin sets
-
 - Graph algorithms
-
 - Minimum spanning tree
-
 - Shortest path
-
 - Dynamic programming
-
 - State space sarch algorithms
-
-
 
 | Algorithm or Data Structure | Runtime                                                                                             | Use Cases                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,3 +31,9 @@
 | Binary Search               | `O(log n)`                                                                                          | You need to find the number in a sorted array closest to another number.<br/>You need to find the smallest number in a sorted array that is larger than another number.<br/>You need to find the largest number in a sorted array that is smaller than another number.<br/>If you aren’t able to use a hash table for whatever reason, you can use a binary search to check if a given element is in a sorted array. |
 | Depth-first Search          | `O(n)`                                                                                              | Traverse an entire graph.<br/>Find a specific element in a graph.<br/>Find the connected components of a graph.                                                                                                                                                                                                                                                                                                      |
 | Sorting                     | `O(n log n)`                                                                                        | Can be used if you need to process elements in a specific order. First sort by that order, then iterate through the elements.<br/>Can be used to sort an array that you will later perform binary search on.                                                                                                                                                                                                         |
+
+## References
+
+- CS 161 - Design and Analysis of Algorithms
+- Algorithms Illuminated Book series
+- Algorithms 4th Edition

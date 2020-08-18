@@ -1,5 +1,11 @@
 # Sorting
 
+There are three practical reasons why study sorting algorithms is important
+
+- Analyzing sorting algorithms is a good way to compare performance between algorithms
+- Similar techniques are used to address other problems
+- Sorting algorithms is usually a starting point to solve other problems
+
 ### Insertion Sort
 
 * ### Algorithm [View](sorting/insertion.go)
@@ -18,9 +24,9 @@
   * Merge them together to form one sorted collection
 * ### Complexity
 
-| Time | Space        |
-| ---- | ------------ |
-|      | `Θ(n log n)` |
+| Time         | Space        |
+| ------------ | ------------ |
+| `Θ(n log n)` | `Θ(n log n)` |
 
 ### Quick Sort
 
@@ -31,6 +37,6 @@
   * recursively sort second part of `A`
 * ### Complexity
 
-| Time | Space |
-| ---- | ----- |
-|      |       |
+| Time         | Space        |
+| ------------ | ------------ |
+| `Θ(n log n)` | `Θ(n log n)` |
