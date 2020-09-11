@@ -5,6 +5,15 @@
 - The more operations a data structure supports, the slower the operations and greater the space overhead
 - __Rule:__ Choose the simplest data structure that supports all the operations required by the problem
 
+### Queue
+
+- Add to the end, fetch from the beginning
+- 
+
+### Stack
+
+- Add to the end, fetch from the end 
+
 ### Heap
 
 - Data structure that keeps track of an evolving set of objects with keys and can quickly identify the object with the mininum of maximum key.

@@ -21,31 +21,31 @@ Idea: Suppress constant factors and lower-order terms
 
 ### Orders of grow
 
-- Constant **O(1)**
+- Constant `O(1)`
   
   - Eg. Add two numbers
 
-- Logarithmic **O(logN)**
+- Logarithmic `O(logN)`
   
   - Eg. Binary Search
 
-- Linear **O(N)**
+- Linear `O(N)`
   
   - Eg. Find the maximum
 
-- Linearithmic **O(NlogN)**
+- Linearithmic `O(NlogN)`
   
   - Eg. Mergesort, Quicksort
 
-- Quadratic **O(N^2)**
+- Quadratic `O(N^2)`
   
   - Eg. Check all pairs
 
-- Cubic **O(N^3)**
+- Cubic `O(N^3)`
   
   - Eg. Check all triples
 
-- Exponential **O(2^N)**
+- Exponential `O(2^N)`
   
   - Eg. Check all subsets
 

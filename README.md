@@ -8,6 +8,16 @@
 * ### [IV. Graphs](./graphs/README.md)
 * ### [V. Concurrency](./concurrency/README.md)
 
+
+
+## Heuristics
+
+- Divide-and-Conquer
+- Dynamic Programming
+- Greedy Programming
+
+
+
 ## Algorithm Toolbox
 
 - Lists, arrays, stack
