@@ -1,0 +1,16 @@
+=== RUN   TestMergesortSequential
+--- PASS: TestMergesortSequential (0.00s)
+=== RUN   TestMergesortParallel1
+--- PASS: TestMergesortParallel1 (0.00s)
+goos: linux
+goarch: amd64
+BenchmarkMergesortSequential
+BenchmarkMergesortSequential-4   	    1093	   1086016 ns/op
+BenchmarkMergesortParallel1
+BenchmarkMergesortParallel1-4    	     216	   5640234 ns/op
+BenchmarkMergesortParallel2
+BenchmarkMergesortParallel2-4    	     217	   5493822 ns/op
+BenchmarkMergesortParallel3
+BenchmarkMergesortParallel3-4    	    1560	    780244 ns/op
+PASS
+ok  	_/home/jc/Projects/algorithms/concurrency/mergesort	8.156s
