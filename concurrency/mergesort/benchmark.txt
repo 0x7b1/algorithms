@@ -5,12 +5,16 @@
 goos: linux
 goarch: amd64
 BenchmarkMergesortSequential
-BenchmarkMergesortSequential-4   	    1093	   1086016 ns/op
+BenchmarkMergesortSequential-4          	      42	  29976962 ns/op
+BenchmarkMergesortSequentialInplace
+BenchmarkMergesortSequentialInplace-4   	      84	  13797242 ns/op
 BenchmarkMergesortParallel1
-BenchmarkMergesortParallel1-4    	     216	   5640234 ns/op
+BenchmarkMergesortParallel1-4           	      15	  71452672 ns/op
 BenchmarkMergesortParallel2
-BenchmarkMergesortParallel2-4    	     217	   5493822 ns/op
+BenchmarkMergesortParallel2-4           	      18	  70191370 ns/op
 BenchmarkMergesortParallel3
-BenchmarkMergesortParallel3-4    	    1560	    780244 ns/op
+BenchmarkMergesortParallel3-4           	     121	  10560584 ns/op
+BenchmarkBuiltinSort
+BenchmarkBuiltinSort-4                  	      66	  17000007 ns/op
 PASS
-ok  	_/home/jc/Projects/algorithms/concurrency/mergesort	8.156s
+ok  	_/home/jc/Projects/algorithms/concurrency/mergesort	10.824s

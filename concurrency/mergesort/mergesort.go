@@ -23,7 +23,7 @@ func random(n int) []int {
 	return s
 }
 
-func merge(s []int, middle int) {
+func mergeInplace(s []int, middle int) {
 	helper := make([]int, len(s))
 	copy(helper, s)
 
@@ -50,14 +50,52 @@ func merge(s []int, middle int) {
 	}
 }
 
-func mergeSortSequential(arr []int) {
+func mergeSortSequentialInplace(arr []int) {
 	if len(arr) > 1 {
 		middle := len(arr) / 2
 
-		mergeSortSequential(arr[:middle])
-		mergeSortSequential(arr[middle:])
-		merge(arr, middle)
+		mergeSortSequentialInplace(arr[:middle])
+		mergeSortSequentialInplace(arr[middle:])
+		mergeInplace(arr, middle)
 	}
+}
+
+func merge(a, b []int) []int {
+	i, j := 0, 0
+	var c []int
+	for i < len(a) && j < len(b) {
+		if a[i] < b[j] {
+			c = append(c, a[i])
+			i++
+		} else {
+			c = append(c, b[j])
+			j++
+		}
+	}
+
+	for i < len(a) {
+		c = append(c, a[i])
+		i++
+	}
+
+	for j < len(b) {
+		c = append(c, b[j])
+		j++
+	}
+
+	return c
+}
+
+func mergeSortSequential(a []int) []int {
+	if len(a) <= 1 {
+		return a
+	}
+
+	middle := len(a) / 2
+	left := mergeSortSequential(a[:middle])
+	right := mergeSortSequential(a[middle:])
+
+	return merge(left, right)
 }
 
 func mergeSortParallel1(arr []int) {
@@ -79,7 +117,7 @@ func mergeSortParallel1(arr []int) {
 		}()
 
 		wg.Wait()
-		merge(arr, middle)
+		mergeInplace(arr, middle)
 	}
 }
 
@@ -88,7 +126,7 @@ func mergeSortParallel2(arr []int) {
 
 	if arrLen > 1 {
 		if arrLen <= max {
-			mergeSortSequential(arr)
+			mergeSortSequentialInplace(arr)
 		} else {
 			mergeSortParallel1(arr)
 		}
@@ -100,7 +138,7 @@ func mergeSortParallel3(arr []int) {
 
 	if arrLen > 1 {
 		if arrLen <= max {
-			mergeSortSequential(arr)
+			mergeSortSequentialInplace(arr)
 		} else {
 			middle := arrLen / 2
 			var wg sync.WaitGroup
@@ -114,7 +152,7 @@ func mergeSortParallel3(arr []int) {
 			mergeSortParallel3(arr[middle:])
 
 			wg.Wait()
-			merge(arr, middle)
+			mergeInplace(arr, middle)
 		}
 	}
 }
@@ -132,6 +170,6 @@ func mergeSortParallel3(arr []int) {
 //	defer trace.Stop()
 //
 //	arr := []int{4, 3, 6, 1, 2}
-//	mergeSortSequential(arr)
+//	mergeSortSequentialInplace(arr)
 //	fmt.Println(arr)
 //}
