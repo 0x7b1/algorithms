@@ -6,6 +6,18 @@ There are three practical reasons why study sorting algorithms is important
 - Similar techniques are used to address other problems
 - Sorting algorithms is usually a starting point to solve other problems
 
+
+
+## Table of Contents
+
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Bucket Sort
+- Radix Sort
+
+
+
 ### Insertion Sort
 
 * ### Algorithm [View](sorting/insertion.go)
@@ -40,3 +52,7 @@ There are three practical reasons why study sorting algorithms is important
 | Time         | Space        |
 | ------------ | ------------ |
 | `Θ(n log n)` | `Θ(n log n)` |
+
+
+
+- We can achieve a sorting time better than `O(nlogn)` by leveraging the shape of the input data. With this we can enable techniques beyond comparison, such as bucketing.
