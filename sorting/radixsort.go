@@ -6,22 +6,18 @@ import (
 	"fmt"
 )
 
-const maxbit = (1 << 7)
-const digit = 5
+const digit = 8
+const maxbit = -1 << 63
 
-func radixSort(data []uint8) {
-	buff := bytes.NewBuffer(nil)
+func radixsort(data []int64) {
+	buf := bytes.NewBuffer(nil)
 	ds := make([][]byte, len(data))
-
 	for i, e := range data {
-		binary.Write(buff, binary.LittleEndian, e^maxbit)
+		binary.Write(buf, binary.LittleEndian, e^maxbit)
 		b := make([]byte, digit)
-		buff.Read(b)
+		buf.Read(b)
 		ds[i] = b
 	}
-
-	fmt.Println("->", ds)
-
 	countingSort := make([][][]byte, 256)
 	for i := 0; i < digit; i++ {
 		for _, b := range ds {
@@ -34,17 +30,16 @@ func radixSort(data []uint8) {
 			countingSort[k] = bs[:0]
 		}
 	}
-
-	var w uint8
+	var w int64
 	for i, b := range ds {
-		buff.Write(b)
-		binary.Read(buff, binary.LittleEndian, &w)
+		buf.Write(b)
+		binary.Read(buf, binary.LittleEndian, &w)
 		data[i] = w ^ maxbit
 	}
 }
 
 func main() {
-	arr := []uint8{60, 10, 4, 62, 121}
-	radixSort(arr)
-	fmt.Println(arr, maxbit)
+	arr := []int64{60, 10, 4, 62, 12323123, 121, 255}
+	radixsort(arr)
+	fmt.Println(arr)
 }
