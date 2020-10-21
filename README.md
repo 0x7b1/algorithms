@@ -1,37 +1,29 @@
 # Algorithms & Data Structures
 
 ## Index
-
 * ### [I. Time Complexity](std/README.md)
 * ### [II. Sorting](./sorting/README.md)
 * ### [III. Data Structures](./datastructures/README.md)
 * ### [IV. Graphs](./graphs/README.md)
 * ### [V. Concurrency](./concurrency/README.md)
 
-
-
 ## Heuristics
-
 - Divide-and-Conquer
 - Dynamic Programming
 - Greedy Programming
 
-
-
 ## Algorithm Toolbox
-
 - Lists, arrays, stack
 - Trees
 - Sorting and searching
 - Priority queues
 - Pattern matching and parsing
 - Hashing
-- Disjoin sets
+- Disjoint sets
 - Graph algorithms
 - Minimum spanning tree
 - Shortest path
-- Dynamic programming
-- State space sarch algorithms
+- State space search algorithms
 
 | Algorithm or Data Structure | Runtime                                                                                             | Use Cases                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +35,6 @@
 | Sorting                     | `O(n log n)`                                                                                        | Can be used if you need to process elements in a specific order. First sort by that order, then iterate through the elements.<br/>Can be used to sort an array that you will later perform binary search on.                                                                                                                                                                                                         |
 
 ## References
-
 - CS 161 - Design and Analysis of Algorithms
 - Algorithms Illuminated Book series
 - Algorithms 4th Edition
