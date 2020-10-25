@@ -151,6 +151,8 @@ func main() {
 	G.addDiEdge(v_H, v_G)
 	G.addDiEdge(v_H, v_I)
 
+	fmt.Println(G)
+
 	levels := BFS(v_H, G)
 	for i, l := range levels {
 		fmt.Println("Level", i, ":")
