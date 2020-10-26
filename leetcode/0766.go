@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func isToeplitzMatrix(matrix [][]int) bool {
+func isToeplitzMatrix2(matrix [][]int) bool {
 	m := len(matrix)
 	n := len(matrix[0])
 	border := [][]int{{0, 0}}
@@ -33,6 +33,18 @@ func isToeplitzMatrix(matrix [][]int) bool {
 
 			i++
 			j++
+		}
+	}
+
+	return true
+}
+
+func isToeplitzMatrix(matrix [][]int) bool {
+	for i := 0; i < len(matrix) - 1; i++ {
+		for j := 0; j < len(matrix[0]) - 1; j++ {
+			if matrix[i][j] != matrix[i+1][j+1] {
+				return false
+			}
 		}
 	}
 
