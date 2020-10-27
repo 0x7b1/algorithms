@@ -26,7 +26,6 @@ func isToeplitzMatrix2(matrix [][]int) bool {
 				break
 			}
 
-
 			if matrix[i][j] != nr {
 				return false
 			}
