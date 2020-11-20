@@ -36,7 +36,7 @@ func intervalScheduling(vals [][]int) int {
 	for _, interval := range vals {
 		start := interval[0]
 		if start >= x_end {
-			count++	
+			count++
 			x_end = interval[1]
 		}
 	}
