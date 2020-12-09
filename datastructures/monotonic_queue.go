@@ -23,6 +23,7 @@ func (mq *MonotonicQueue) pop(n int) {
 	}
 }
 
+// Complexity: O(n)
 func maxSlidingWindow(nums []int, k int) []int {
 	window := &MonotonicQueue{data: []int{}}
 	var res []int

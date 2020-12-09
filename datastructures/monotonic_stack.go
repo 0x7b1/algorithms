@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Time O(n)
+// Complexity: O(n)
 func nextGreaterElement(nums []int) []int {
 	var stack []int
 	n := len(nums)
