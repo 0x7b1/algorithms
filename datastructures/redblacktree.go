@@ -23,7 +23,8 @@ func (t *RBTree) insert(k int) {
 }
 
 func (t *RBTree) _insert(n *Node, k int) *Node {
-
+	// TODO
+	return nil
 }
 
 func (t *RBTree) printInOrder() {
