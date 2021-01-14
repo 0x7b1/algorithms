@@ -1,7 +1,7 @@
 # Algorithms & Data Structures
 
 ## Index
-* ### [I. Time Complexity](std/README.md)
+* ### [I. Time Complexity](complexity.md)
 * ### [II. Sorting](./sorting/README.md)
 * ### [III. Data Structures](./datastructures/README.md)
 * ### [IV. Graphs](./graphs/README.md)
