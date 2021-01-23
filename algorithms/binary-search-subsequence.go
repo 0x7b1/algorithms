@@ -39,7 +39,7 @@ func isSubsequence(s, t string) bool {
 		if pos == len(index[c]) {
 			return false
 		}
-		
+
 		j = index[c][pos] + 1
 	}
 
