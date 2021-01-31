@@ -2,48 +2,82 @@ package main
 
 import "fmt"
 
-func minSlidingWindowBruteforce(s, t string) string {
-	for i := 0; i < len(s); i++ {
-		for j := i + 1; j < len(s); j++ {
-			// if s[i:j] contains all characters of t:
-			// update answer
+func stringContains(a, b string) bool {
+	counter := make(map[rune]int)
+	for _, c := range a {
+		counter[c]++
+	}
+
+	for _, c := range b {
+		if _, ok := counter[c]; !ok {
+			return false
+		}
+
+		counter[c]--
+
+		if counter[c] < 0 {
+			return false
 		}
 	}
 
-	return ""
+	return true
 }
 
-func minSlidingWindowIncremental(s, t string) string {
-	var start, left, right int
-	minLength := 1000
-	var match int
-	window := make(map[byte]int)
-	needs := make(map[byte]int)
+// Time: O(n^2)
+func minimumWindowSubstringBruteforce(s, t string) string {
+	var minSubstr string = s
+	for i := 0; i < len(s); i++ {
+		for j := i + 1; j < len(s); j++ {
+			substr := s[i : j+1]
+			if stringContains(substr, t) {
+				if len(substr) < len(minSubstr) {
+					minSubstr = substr
+				}
+			}
+		}
+	}
+
+	return minSubstr
+}
+
+// Time: O(n)
+func minimumWindowSubstringSliding(s, t string) string {
+	minLenght := 10000
+	start := 0
+	var left, right int
+	windowHave := make(map[byte]int)
+	windowNeed := make(map[byte]int)
+	match := 0
 
 	for _, c := range t {
-		needs[byte(c)]++
+		windowNeed[byte(c)]++
 	}
 
 	for right < len(s) {
 		c1 := s[right]
-		if count, ok := needs[c1]; ok && count > 0 {
-			window[c1]++
-			if window[c1] == needs[c1] {
+
+		if windowNeed[c1] > 0 {
+			windowHave[byte(c1)]++
+
+			if windowHave[c1] == windowNeed[c1] {
 				match++
 			}
 		}
+
 		right++
 
-		for match == len(needs) {
-			if right-left < minLength {
+		for match == len(windowNeed) {
+			if right-left < minLenght {
 				start = left
-				minLength = right - left
+				minLenght = right - left
 			}
 
 			c2 := s[left]
-			if count, ok := needs[c2]; ok && count > 0 {
-				window[c2]--
-				if window[c2] < needs[c2] {
+
+			if windowNeed[c2] > 0 {
+				windowHave[c2]--
+
+				if windowHave[c2] < windowNeed[c2] {
 					match--
 				}
 			}
@@ -51,9 +85,17 @@ func minSlidingWindowIncremental(s, t string) string {
 		}
 	}
 
-	return s[start:minLength]
+	return s[start:start + minLenght]
+}
+
+func findAllAnagramsInString(s, p string) []int {
+	return nil
 }
 
 func main() {
-	fmt.Println(minSlidingWindowBruteforce("ABC", "A"))
+	fmt.Println(minimumWindowSubstringBruteforce("ABCB", "BB"))
+	fmt.Println(minimumWindowSubstringSliding("ABCB", "BB"))
+
+	fmt.Println(minimumWindowSubstringBruteforce("EBBANCF", "ABC"))
+	fmt.Println(minimumWindowSubstringSliding("EBBANCF", "ABC"))
 }
