@@ -85,11 +85,76 @@ func minimumWindowSubstringSliding(s, t string) string {
 		}
 	}
 
-	return s[start:start + minLenght]
+	return s[start : start+minLenght]
 }
 
-func findAllAnagramsInString(s, p string) []int {
-	return nil
+func findAllAnagramsInString(s, t string) []int {
+	var left, right int
+	windowHave := make(map[byte]int)
+	windowNeed := make(map[byte]int)
+	match := 0
+	res := []int{}
+
+	for _, c := range t {
+		windowNeed[byte(c)]++
+	}
+
+	for right < len(s) {
+		c1 := s[right]
+
+		if windowNeed[c1] > 0 {
+			windowHave[byte(c1)]++
+
+			if windowHave[c1] == windowNeed[c1] {
+				match++
+			}
+		}
+
+		right++
+
+		for match == len(windowNeed) {
+			if right-left == len(t) {
+				res = append(res, left)
+			}
+
+			c2 := s[left]
+
+			if windowNeed[c2] > 0 {
+				windowHave[c2]--
+
+				if windowHave[c2] < windowNeed[c2] {
+					match--
+				}
+			}
+			left++
+		}
+	}
+
+	return res
+}
+
+func lengthOfLongestSubstringSliding(s string) int {
+	window := make(map[byte]int)
+	var left, right int
+	var res int
+
+	for right < len(s) {
+		c1 := s[right]
+		window[c1]++
+		right++
+
+		if window[c1] > 1 {
+			c2 := s[left]
+			window[c2]--
+			left++
+		}
+
+		if res < right-left {
+			res = right - left
+		}
+	}
+
+	return res
 }
 
 func main() {
@@ -98,4 +163,8 @@ func main() {
 
 	fmt.Println(minimumWindowSubstringBruteforce("EBBANCF", "ABC"))
 	fmt.Println(minimumWindowSubstringSliding("EBBANCF", "ABC"))
+
+	fmt.Println(findAllAnagramsInString("cbaebabacd", "abc"))
+
+	fmt.Println(lengthOfLongestSubstringSliding("abcabcbb"))
 }
