@@ -36,7 +36,7 @@ func leftBound(nums []int, target int) int {
 	return left
 }
 
-func leftBoyndSearch(nums []int, target int) int {
+func leftBoundSearch(nums []int, target int) int {
 	left, right := 0, len(nums)-1
 	for left <= right {
 		mid := left + (right-left)/2
@@ -101,7 +101,7 @@ func rightBoundSearch(nums []int, target int) int {
 func main() {
 	fmt.Println(basicClosedInterval([]int{1, 2, 2, 2, 3}, 4))
 	fmt.Println(leftBound([]int{1, 2, 2, 2, 3}, 4))
-	fmt.Println(leftBoyndSearch([]int{1, 2, 2, 2, 3}, 4))
+	fmt.Println(leftBoundSearch([]int{1, 2, 2, 2, 3}, 4))
 	fmt.Println(rightBound([]int{1, 2, 2, 2, 3}, 4))
 	fmt.Println(rightBoundSearch([]int{1, 2, 2, 2, 3}, 4))
 }
