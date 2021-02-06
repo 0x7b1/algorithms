@@ -36,6 +36,7 @@ func rightBound(arr []int, n int) int {
 	return l - 1
 }
 
+// Time: O(n)
 func getFrequency(arr []int, n int) int {
 	return rightBound(arr, n) - leftBound(arr, n) + 1
 }
