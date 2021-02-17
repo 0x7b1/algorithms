@@ -4,12 +4,12 @@ import "fmt"
 
 func arrayManipulation(n int32, queries [][]int32) int64 {
 	var max int64
-	agg := make([]int64, n + 1)
+	agg := make([]int64, n+1)
 	for _, query := range queries {
 		a, b, k := query[0], query[1], query[2]
 		agg[a] += int64(k)
-		if b + 1 <= n {
-			agg[b + 1] -= int64(k)
+		if b+1 <= n {
+			agg[b+1] -= int64(k)
 		}
 	}
 
@@ -21,7 +21,7 @@ func arrayManipulation(n int32, queries [][]int32) int64 {
 		}
 
 	}
-	 return max
+	return max
 }
 
 func main() {
