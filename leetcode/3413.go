@@ -8,6 +8,7 @@ type WordDictionary struct {
 
 /** Initialize your data structure here. */
 func Constructor() WordDictionary {
+	return WordDictionary{}
 }
 
 /** Adds a word into the data structure. */

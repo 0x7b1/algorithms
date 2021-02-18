@@ -2,18 +2,18 @@ package main
 
 import "fmt"
 
-func removeDuplicatesArray(nums []int) int {
+func removeDuplicatesArray(numbers []int) int {
 	slow, fast := 0, 1
-	n := len(nums)
+	n := len(numbers)
 
 	if n == 0 {
 		return 0
 	}
 
 	for fast < n {
-		if nums[slow] != nums[fast] {
+		if numbers[slow] != numbers[fast] {
 			slow++
-			nums[slow] = nums[fast]
+			numbers[slow] = numbers[fast]
 		}
 
 		fast++
