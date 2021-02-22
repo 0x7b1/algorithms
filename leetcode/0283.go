@@ -25,6 +25,7 @@ func main() {
 	//arr := []int{1, 0, 1}
 	//arr := []int{1, 2, 3, 1}
 	//arr := []int{1, 0}
-	moveZeroes(arr)
+	//moveZeroes(arr)
+
 	fmt.Println(arr)
 }
