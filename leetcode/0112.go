@@ -17,7 +17,8 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 		return targetSum-root.Val == 0
 	}
 
-	return hasPathSum(root.Left, targetSum-root.Val) || hasPathSum(root.Right, targetSum-root.Val)
+	return hasPathSum(root.Left, targetSum-root.Val) ||
+		hasPathSum(root.Right, targetSum-root.Val)
 }
 
 func main() {
@@ -35,4 +36,7 @@ func main() {
 	}
 
 	fmt.Println(hasPathSum(t, 22))
+	fmt.Println(hasPathSum(t, 1))
+	fmt.Println(hasPathSum(t, 18))
+	fmt.Println(hasPathSum(t, 3))
 }
