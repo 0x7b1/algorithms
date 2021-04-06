@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func flipAndInvertImage(A [][]int) [][]int {
+func flipAndInvertImage2(A [][]int) [][]int {
 	cols := len(A[0])
 	for i := 0; i < len(A); i++ {
 		for j := 0; j < cols/2; j++ {
@@ -13,6 +13,20 @@ func flipAndInvertImage(A [][]int) [][]int {
 	for i := 0; i < len(A); i++ {
 		for j := 0; j < len(A[i]); j++ {
 			A[i][j] ^=1
+		}
+	}
+
+	return A
+}
+
+func flipAndInvertImage(A [][]int) [][]int {
+	n := len(A)
+	for _, row := range A {
+		for i := 0; i * 2 < n; i++ {
+			if row[i] == row[n - i - 1] {
+				row[n - i - 1] ^= 1
+				row[i] = row[n - i - 1]
+			}
 		}
 	}
 
