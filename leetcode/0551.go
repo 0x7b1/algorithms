@@ -4,22 +4,23 @@ import "fmt"
 
 func checkRecord(s string) bool {
 	countA, countL := 0, 0
-	last := s[0]
 	for _, c := range s {
 		if c == 'A' {
 			countA++
-		} else if c == 'L' && last == 'L' {
+		}
+
+		if c == 'L' {
 			countL++
 		} else {
 			countL = 0
 		}
 
-		last = byte(c)
+		if countA >= 2 || countL > 2 {
+			return false
+		}
 	}
 
-	fmt.Println(countA, countL)
-
-	return countA < 2 && countL <= 3
+	return true
 }
 
 func main() {
