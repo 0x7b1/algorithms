@@ -8,28 +8,30 @@ type ListNode struct {
 }
 
 func isPalindrome(head *ListNode) bool {
-	rev := &ListNode{}
-	slow, fast := head, head
-
+	fast, slow := head, head
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
-		rev, rev.Next, slow = slow, rev, slow.Next
-	}
-
-	if fast != nil {
 		slow = slow.Next
 	}
 
-	for rev != nil && rev.Val == slow.Val {
-		slow = slow.Next
-		rev = rev.Next
+	var node *ListNode
+	for slow != nil {
+		next := slow.Next
+		slow.Next = node
+		node = slow
+		slow = next
 	}
 
-	if rev != nil {
-		return true
+	for node != nil {
+		if node.Val != head.Val {
+			return false
+		}
+
+		node = node.Next
+		head = head.Next
 	}
 
-	return false
+	return true
 }
 
 func (l ListNode) String() string {
@@ -44,4 +46,16 @@ func main() {
 					&ListNode{1, nil}}}}}
 
 	fmt.Println(isPalindrome(list))
+
+	list1 := &ListNode{1,
+		&ListNode{2,
+				&ListNode{2,
+					&ListNode{1, nil}}}}
+
+	fmt.Println(isPalindrome(list1))
+
+	list2 := &ListNode{1,
+		&ListNode{2, nil}}
+
+	fmt.Println(isPalindrome(list2))
 }
