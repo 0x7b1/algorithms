@@ -1,9 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func largestSumAfterKNegations(A []int, K int) int {
-	return 0
+	sort.Ints(A)
+	minIdx := 0
+	for i := 0; i < K; i++ {
+		A[minIdx] = -A[minIdx]
+		if A[minIdx+1] < A[minIdx] {
+			minIdx++
+		}
+	}
+	
+	sum := 0
+	for _, n := range A {
+		sum += n
+	}
+
+	return sum
 }
 
 func main() {
